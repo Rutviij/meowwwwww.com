@@ -1,17 +1,23 @@
 
-You said:
+// Track failed login attempts
 let loginAttempts = 0;
 
+// Elements
 const form = document.getElementById("loginForm");
 const errorBox = document.getElementById("loginError");
+const username = document.getElementById("username");
+const password = document.getElementById("password");
+const rememberMe = document.getElementById("rememberMe");
 
+// On form submit
 form.addEventListener("submit", e => {
   e.preventDefault();
 
-  const user = username.value;
-  const pass = password.value;
+  const user = username.value.trim();
+  const pass = password.value.trim();
   const remember = rememberMe.checked;
 
+  // ✅ Check credentials
   if (
     (user === "admin" && pass === "school123") ||
     (user === "staff" && pass === "campus456")
@@ -24,8 +30,8 @@ form.addEventListener("submit", e => {
       localStorage.removeItem("adminUsername");
     }
 
-    // 🔁 REDIRECT
-    window.location.href = "admin.html";
+    // ✅ GitHub Pages redirect
+    window.location.href = "/myrepo/admin.html";
   } else {
     loginAttempts++;
     errorBox.classList.add("show");
@@ -37,15 +43,17 @@ form.addEventListener("submit", e => {
   }
 });
 
+// Forgot password
 document.getElementById("forgotPassword").onclick = e => {
   e.preventDefault();
   alert("Contact system administrator.");
 };
 
+// On page load, populate remembered username
 window.onload = () => {
   const saved = localStorage.getItem("adminUsername");
   if (saved) {
     username.value = saved;
     rememberMe.checked = true;
   }
-}; 
+};; 
