@@ -23,6 +23,7 @@ form.addEventListener("submit", e => {
     (user === "staff" && pass === "campus456")
   ) {
     localStorage.setItem("isAdminLoggedIn", "true");
+  }
 
     if (remember) {
       localStorage.setItem("adminUsername", user);
