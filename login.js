@@ -31,7 +31,7 @@ form.addEventListener("submit", e => {
     }
 
     // ✅ GitHub Pages redirect
-    window.location.href = "/myrepo/admin.html";
+    window.location.href = "/meowwwwww.com/admin.html";
   } else {
     loginAttempts++;
     errorBox.classList.add("show");
